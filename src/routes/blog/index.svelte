@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
-  import type { Preload } from "@sapper/common";
+  import type Common from "@sapper/common";
 
-  export const preload: Preload = async function (this) {
+  export const preload: Common.Preload = async function (this) {
     return this.fetch(`blog.json`)
       .then((r: { json: () => any }) => r.json())
       .then((posts: { slug: string; title: string; html: any }[]) => {
