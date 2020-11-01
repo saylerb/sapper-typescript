@@ -1,11 +1,13 @@
 <script context="module" lang="ts">
-  export function preload() {
+  import type { Preload } from "@sapper/common";
+
+  export const preload: Preload = async function (this) {
     return this.fetch(`blog.json`)
       .then((r: { json: () => any }) => r.json())
       .then((posts: { slug: string; title: string; html: any }[]) => {
         return { posts };
       });
-  }
+  };
 </script>
 
 <script lang="ts">
